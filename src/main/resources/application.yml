@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: uber-backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/uber}
+    username: ${DB_USERNAME:uber}
+    password: ${DB_PASSWORD:uber-local}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 2s
+      connect-timeout: 2s
+server:
+  port: ${PORT:8080}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+uber:
+  location-max-age-seconds: ${LOCATION_MAX_AGE_SECONDS:120}
